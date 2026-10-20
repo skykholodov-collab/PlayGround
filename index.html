@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#05060d" />
+    <meta
+      name="description"
+      content="ORBIT is an interactive 3D solar system explorer. Follow every planet, inspect its data, and move through the solar system in real time."
+    />
+    <title>ORBIT — Solar System Explorer</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='12' fill='%23ffb347'/%3E%3Cellipse cx='32' cy='32' rx='28' ry='11' fill='none' stroke='%236ec6ff' stroke-width='2' transform='rotate(-24 32 32)'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div id="stage" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="top hud">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">
+          <span class="mark-core"></span>
+          <span class="mark-ring"></span>
+        </div>
+        <div class="brand-text">
+          <h1>ORBIT</h1>
+          <p>Solar system explorer</p>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span>Live simulation</span>
+        <span class="divider" aria-hidden="true"></span>
+        <span>4.6 billion years</span>
+      </div>
+    </header>
+
+    <aside id="panel" class="panel hud">
+      <div id="panel-welcome" class="panel-body">
+        <p class="eyebrow">Sol system / overview</p>
+        <h2>One star.<br />Eight worlds.</h2>
+        <p class="lede">
+          A living model of our planetary neighborhood. Follow the orbits, inspect
+          each world, and move through 4.6 billion years of motion.
+        </p>
+        <div class="facts-mini">
+          <div><span>Age</span><strong>4.6 B yrs</strong></div>
+          <div><span>Planets</span><strong>8</strong></div>
+          <div><span>Moons</span><strong>300+</strong></div>
+        </div>
+        <div class="panel-hint">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          Select a world to begin
+        </div>
+      </div>
+      <div id="panel-info" class="panel-body" hidden></div>
+    </aside>
+
+    <div class="controls hud">
+      <div class="speed-block">
+        <div class="control-head">
+          <label for="speed">Orbit speed</label>
+          <output id="speed-out" for="speed">1.0×</output>
+        </div>
+        <input id="speed" type="range" min="0" max="4" step="0.1" value="1" />
+      </div>
+      <div class="button-row">
+        <button id="pause" class="icon-btn" type="button" title="Pause orbits" aria-label="Pause orbits" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="5" width="3.4" height="14" rx="1.2" /><rect x="13.6" y="5" width="3.4" height="14" rx="1.2" /></svg>
+        </button>
+        <button id="orbits" class="icon-btn is-active" type="button" title="Toggle orbit lines" aria-label="Toggle orbit lines" aria-pressed="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" /><ellipse cx="12" cy="12" rx="9.5" ry="4.2" fill="none" stroke="currentColor" stroke-width="1.6" transform="rotate(-24 12 12)" /><circle cx="20" cy="8.4" r="1.5" /></svg>
+        </button>
+        <button id="labels" class="icon-btn is-active" type="button" title="Toggle labels" aria-label="Toggle labels" aria-pressed="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h9l6 6-6 6H4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" /><circle cx="8" cy="12" r="1.4" /></svg>
+        </button>
+        <button id="reset" class="icon-btn" type="button" title="Reset view" aria-label="Reset view">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 12a6.8 6.8 0 1 0 2-4.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /><path d="M4.2 4.6v4.2h4.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+      </div>
+      <button id="tour" class="tour-btn" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" /></svg>
+        <span>Guided tour</span>
+      </button>
+    </div>
+
+    <nav id="rail" class="rail hud" aria-label="Solar system bodies"></nav>
+
+    <p id="hint" class="hint hud">Drag to orbit · Scroll to zoom · Click a world</p>
+
+    <div id="loader" class="loader" role="status" aria-live="polite">
+      <div class="loader-orbit" aria-hidden="true"><span></span></div>
+      <p>Calibrating orbits</p>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <noscript>
+      <div class="noscript">ORBIT needs JavaScript and WebGL to render the solar system.</div>
+    </noscript>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,18 +1,46 @@
-# PlayGround
+# ORBIT
 
-<!-- omgithub:readme:start -->
-## 🚀 Build, play, and remix with OMGithub
+An interactive 3D solar system explorer built with Three.js and Vite. ORBIT renders the Sun, all eight planets, Earth's Moon, Saturn's rings, and the asteroid belt with procedurally generated textures — no external image assets required.
 
-**Created using [OMGithub.com](https://omgithub.com).**
+## Features
 
-[![OMGithub](https://img.shields.io/badge/OMGithub-Open%20project-orange?style=for-the-badge)](https://omgithub.com/skykholodov-collab/PlayGround)
-[![GitHub](https://img.shields.io/badge/GitHub-Source-181717?logo=github&style=for-the-badge)](https://github.com/skykholodov-collab/PlayGround)
+- Real-time orbital motion with a speed control, pause, and guided tour.
+- Click any world (or its label) for an animated close-up and a data panel with distance, diameter, rotation, year length, moons, and temperature.
+- Toggle orbit lines and labels, reset to the system overview, and orbit/zoom freely with the mouse, trackpad, or touch.
+- Responsive layout: a full HUD on desktop and a focused bottom-sheet experience on phones.
+- Deterministic procedural planet textures, starfield, ring bands, and atmospheric rims generated at runtime.
 
-- 🎮 [Open the project](https://omgithub.com/skykholodov-collab/PlayGround).
-- ✨ [Remix this project](https://omgithub.com/?remix=skykholodov-collab%2FPlayGround).
-- 💻 [Explore the source](https://github.com/skykholodov-collab/PlayGround).
-- 🛠️ [Check build runs](https://github.com/skykholodov-collab/PlayGround/actions).
-- 🐛 [Report an issue](https://github.com/skykholodov-collab/PlayGround/issues).
-- 👤 [Explore the creator's projects](https://omgithub.com/skykholodov-collab).
-- 🌍 [Create with OMGithub](https://omgithub.com).
-<!-- omgithub:readme:end -->
+## Run locally
+
+```sh
+npm install
+npm run dev
+```
+
+Open the printed local URL. For a production build:
+
+```sh
+npm run build
+npm run preview
+```
+
+## Controls
+
+| Action | Input |
+| --- | --- |
+| Rotate the view | Drag |
+| Zoom | Scroll or pinch |
+| Inspect a body | Click a planet or label |
+| Pause / resume | `Space` or the pause button |
+| Reset to overview | `Escape`, `R` |
+| Guided tour | `T` or the tour button |
+
+## Tests
+
+```sh
+npm test
+```
+
+Data integrity tests cover the body catalog, required display fields, outward ordering, and decreasing orbital speeds.
+
+Built with [OMGithub](https://omgithub.com).
